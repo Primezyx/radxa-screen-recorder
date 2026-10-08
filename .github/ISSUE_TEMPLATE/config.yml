@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "⚠️ Allwinner hardware encoder — recordings at non-native resolutions are corrupt"
+    url: https://github.com/Primezyx/radxa-screen-recorder/blob/main/docs/allwinner-omxh264-encoder-bug.md
+    about: "If your recording has a plausible size but decodes to 0 frames, read this first."

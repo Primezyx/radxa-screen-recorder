@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint and syntax checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y shellcheck desktop-file-utils
+
+      - name: Shell scripts — syntax
+        run: |
+          for f in bin/record-screen.sh install.sh uninstall.sh tools/*.sh; do
+            echo "== bash -n $f"
+            bash -n "$f"
+          done
+
+      - name: Shell scripts — ShellCheck (errors fail the build)
+        run: shellcheck -S error bin/record-screen.sh install.sh uninstall.sh tools/*.sh
+
+      - name: Shell scripts — ShellCheck (warnings, informational)
+        run: |
+          shellcheck -S warning -f gcc bin/record-screen.sh install.sh uninstall.sh tools/*.sh \
+            || echo "::notice::ShellCheck reported warnings (not fatal)"
+
+      - name: Python — syntax
+        run: python3 -m py_compile bin/record-screen-gui.py tools/khotkeys-edit.py
+
+      - name: Desktop entries — validate
+        run: |
+          for f in desktop/*.desktop.in; do
+            out="/tmp/$(basename "$f" .in)"
+            sed 's|@EXEC@|/bin/true|' "$f" > "$out"
+            echo "== desktop-file-validate $f"
+            desktop-file-validate "$out"
+          done
+
+      - name: Help output runs
+        run: |
+          ./bin/record-screen.sh --version
+          ./bin/record-screen.sh --help > /dev/null
