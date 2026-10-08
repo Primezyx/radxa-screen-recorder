@@ -1,0 +1,14 @@
+# recordings
+*.mkv
+*.mp4
+*.h264
+
+# python
+__pycache__/
+*.pyc
+
+# editors / OS
+.vscode/
+.idea/
+*~
+.DS_Store

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Screen Recording (start/stop)
+Name[zh_CN]=屏幕录制(开始/停止)
+Comment=Record the screen; run it again to stop and save
+Comment[zh_CN]=录制屏幕,再运行一次即停止并保存
+Exec=@EXEC@
+Icon=media-record
+Terminal=false
+Categories=AudioVideo;
+StartupNotify=false

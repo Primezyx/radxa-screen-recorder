@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Stop Recording
+Name[zh_CN]=停止录制
+Comment=Stop the current screen recording and save it
+Comment[zh_CN]=停止当前屏幕录制并保存
+Exec=@EXEC@ stop
+Icon=media-playback-stop
+Terminal=false
+Categories=AudioVideo;
+StartupNotify=false
