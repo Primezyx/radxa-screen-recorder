@@ -1,5 +1,7 @@
 # radxa-screen-recorder
 
+[![CI](https://github.com/Primezyx/radxa-screen-recorder/actions/workflows/ci.yml/badge.svg)](https://github.com/Primezyx/radxa-screen-recorder/actions/workflows/ci.yml)
+
 > A lightweight screen recorder for Linux, made for Allwinner / Radxa boards.
 > **It uses the hardware encoder when that is safe, and it verifies that every
 > recording is actually decodable** — plus a floating "Stop & Save" bar.

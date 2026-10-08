@@ -1,5 +1,7 @@
 # radxa-screen-recorder
 
+[![CI](https://github.com/Primezyx/radxa-screen-recorder/actions/workflows/ci.yml/badge.svg)](https://github.com/Primezyx/radxa-screen-recorder/actions/workflows/ci.yml)
+
 > 给 Linux(尤其是 Allwinner / Radxa 开发板)用的轻量录屏工具。
 > **能用硬件编码器就用,录完自动检查文件是不是真的能播**,还带一个「停止并保存」的悬浮按钮。
 
